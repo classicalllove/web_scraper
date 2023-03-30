@@ -19,6 +19,7 @@ for a in list_of_numbers:
     r = requests.get(url)
     soup = BeautifulSoup(r.content, 'html.parser')
     articles_soup_ = soup.find_all('span', {'class': 'c-meta__type'}, text=f'{type_of_articles}')
+    
     for link in articles_soup_:
         link_ = link.find_parent('article').find('a')
         article_link_suffix = link_.get('href')
